@@ -1,0 +1,11 @@
+[Unit]
+Description=Loads user's pre-defined rules of iptables
+Before=network.target
+
+[Service]
+Type=forking
+WorkingDirectory=/opt/iptables-autoload
+ExecStart=/bin/bash /opt/iptables-autoload/iptables-rules-load.sh
+
+[Install]
+WantedBy=multi-user.target
